@@ -1,0 +1,24 @@
+---
+- include_role:
+    name: openio-service
+  vars:
+    openio_service_type: "oio-loki"
+    openio_service_namespace: "{{ openio_loki_namespace }}"
+    openio_service_maintenance_mode: "{{ openio_loki_maintenance_mode }}"
+    openio_service_packages:
+      - oio-loki
+    openio_service_directories:
+      - path: "{{ openio_service_volume }}"
+    openio_service_configuration_files:
+      - name: config.yml
+    openio_service_services:
+      - command: >-
+          /usr/sbin/oio-loki
+          -config.file={{ openio_service_conf_dir }}/config.yml
+        redirect_stdout_to_syslog: true
+    openio_service_checks:
+      - uri:
+          url: "http://{{ openio_loki_bind_address }}:{{ openio_loki_bind_port }}/ready"
+        retries: 10
+        delay: 2
+...
