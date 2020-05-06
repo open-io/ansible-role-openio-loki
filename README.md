@@ -17,8 +17,8 @@ An Ansible role for install loki. Specifically, the responsibilities of this rol
 | `openio_loki_maintenance_mode` | `"{{ openio_maintenance_mode \| d(false) }}"` | Maintenance mode |
 | `openio_loki_bind_address` | `"{{ openio_mgmt_bind_address \| d(ansible_default_ipv4.address) }}"` | Binding IP address |
 | `openio_loki_bind_port` | `6900` | Binding port |
-| `openio_loki_grpc_bind_address` | `"{{ openio_loki_bind_address) }}"` | GRPC binding IP address |
-| `openio_loki_grpc_bind_port` | `0` | GRPC binding port |
+| `openio_loki_grpc_bind_address` | `127.0.0.1` | GRPC binding IP address |
+| `openio_loki_grpc_bind_port` | `6903` | GRPC binding port |
 
 ## Dependencies
 - https://github.com/open-io/ansible-role-openio-service
