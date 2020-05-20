@@ -2,7 +2,7 @@
 - include_role:
     name: openio-service
   vars:
-    openio_service_type: "oio-loki"
+    openio_service_type: "loki"
     openio_service_namespace: "{{ openio_loki_namespace }}"
     openio_service_maintenance_mode: "{{ openio_loki_maintenance_mode }}"
     openio_service_packages:
