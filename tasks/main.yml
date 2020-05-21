@@ -19,6 +19,6 @@
     openio_service_checks:
       - uri:
           url: "http://{{ openio_loki_bind_address }}:{{ openio_loki_bind_port }}/ready"
-        retries: 10
-        delay: 2
+        retries: 15
+        delay: 5
 ...
